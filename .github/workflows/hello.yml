@@ -12,3 +12,9 @@ jobs:
       - name: Sano hei
         run: |
           echo "Terve maailma!"
+      - name: Milloin?
+        run: |
+          date
+      - name: Kansion sisalto
+        run: |
+          ls -l
