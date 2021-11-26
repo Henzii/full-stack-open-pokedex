@@ -4,17 +4,23 @@ on:
   push:
     branches:
       - master
-
+  pull_request:
+    branches: [master]
+    types: [opened, synchronize]
 jobs:
   hello_world_job:
     runs-on: ubuntu-18.04
     steps:
-      - name: Sano hei
-        run: |
-          echo "Terve maailma!"
-      - name: Milloin?
-        run: |
-          date
-      - name: Kansion sisalto
-        run: |
-          ls -l
+      - uses: actions/checkout@v2
+      - name: gh context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: gh commmits
+        env:
+          COMMITS: ${{ toJson(github.event.commits )}}
+        run: echo "$COMMITS"
+      - name: messages
+        env:
+          COMMIT_MSGS: ${{ toJson(github.event.commits.*.messages )}}
+        run: echo "$COMMIT_MSGS"
