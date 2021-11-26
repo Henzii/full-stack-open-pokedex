@@ -10,7 +10,7 @@ app.get('/health', (_req, res) => {
   res.send('yläpeukku')
 })
 app.get('/version', (_req, res) => {
-  res.send('1')
+  res.send('2')
 })
 app.listen(PORT, () => {
   console.log('server started on port 5000')
