@@ -13,15 +13,12 @@ jobs:
       - name: gh context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run:
-          echo "$GITHUB_CONTEXT"
+        run: echo "$GITHUB_CONTEXT"
       -name: gh commmits
         env:
           COMMITS: ${{ toJson(github.event.commits )}}
-        run:
-          echo "$COMMITS"
+        run: echo "$COMMITS"
       -name: messages
         env:
           COMMIT_MSGS: ${{ toJson(github.event.commits.*.messages )}}
-        run:
-          echo "$COMMIT_MSGS"
+        run: echo "$COMMIT_MSGS"
