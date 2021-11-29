@@ -1,6 +1,6 @@
 on:
-  schedule:
-  - cron: '0 11 * * *'
+ push:
+  - kehitys
 jobs:
   tarkista_toimivuus:
     steps:
