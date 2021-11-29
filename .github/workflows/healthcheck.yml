@@ -1,6 +1,10 @@
+name: Terveys tarkistus
+
 on:
  push:
+  branches:
   - kehitys
+
 jobs:
   tarkista_toimivuus:
     steps:
