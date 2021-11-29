@@ -18,3 +18,14 @@ jobs:
             Repository: ${{ github.repository }}
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+      - name: say hello to Henzi
+                uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO_ME }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            Hello Henzi,
+
+            You're the best!
+
+            Thanks!
