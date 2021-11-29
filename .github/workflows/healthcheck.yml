@@ -1,3 +1,6 @@
+on:
+  schedule:
+  - cron: '0 11 * * *'
 steps:
   - name: Check the deployed service URL
     uses: jtalk/url-health-check-action@v2
