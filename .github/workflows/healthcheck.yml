@@ -1,9 +1,9 @@
 name: Terveystarkistus
 
 on:
- push:
-  branches:
-  - kehitys
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '00 13 * * *'
 
 jobs:
   tarkista_toimivuus:
@@ -22,3 +22,10 @@ jobs:
           retry-delay: 5s # Optional, only applicable to max-attempts > 1
           # Retry all errors, including 404. This option might trigger curl upgrade.
           retry-all: false # Optional, defaults to "no"
+      - name: say hello to Henzi
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO_ME }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            Terveystarkistus suoritettu.
