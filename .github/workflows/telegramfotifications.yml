@@ -19,7 +19,7 @@ jobs:
             
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
       - name: say hello to Henzi
-                uses: appleboy/telegram-action@master
+        uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO_ME }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
